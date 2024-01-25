@@ -1,8 +1,7 @@
 #include "sort.h"
 /**
- * quick_sort: sotrs elemnt in quic sort
- * @array: pointer to array
- * @size: size of array
+ * insertion_sort_list: sotrs elemnt in insertion_sort_list
+ * @list: pointer to array
  * Return: no return
 */
 
@@ -17,16 +16,17 @@ void insertion_sort_list(listint_t **list)
 	head = *list;
 	current = *list;
 	/*check for error handling*/
-	if (!*list)
+	if (!*list || !head->next)
 		return;
 	/*loop through the array*/
-	while (current->next)
+	while (current)
 	{
 		/*loop to search for the most lower value*/
-		while (current->next != NULL && current->n > current->next->n )
+		while (current && current->n > current->next->n )
 		{
 			swap_node(current, current->next);
 			print_list(head);
+			current = current->prev;
 		}
 		current = current->next;
 		
