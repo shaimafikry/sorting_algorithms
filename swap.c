@@ -22,13 +22,16 @@ void swap (int *a, int *b)
 */
 void swap_node (listint_t *a, listint_t *b)
 {
+	listint_t *tmp;
+	tmp = a;
 	a->next = b->next;
-	a->prev = b;
 	if (b->next != NULL)
 		b->next->prev = a;
-	b->next = a;
-	b->prev = a->prev;
-	if (a->prev!= NULL)
-		a->prev->next = b;
+	a->prev = b;
+	
 
+	b->next = tmp;
+	b->prev = tmp->prev;
+	if (tmp->prev != NULL)
+		b->prev->next = b;
 }
