@@ -30,7 +30,7 @@ void quick_sort(int *array, size_t size)
 	size_t i, min, j;
 
 	/*check for error handling*/
-	if (!array || size == 1)
+	if (array == NULL || size < 2)
 		return;
 	/*loop through the array*/
 	for (i = 0; i < size; i++)
