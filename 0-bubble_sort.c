@@ -1,5 +1,21 @@
 #include "sort.h"
 /**
+ * _swap - function to swap values
+ * @a: pointer to the first value
+ * @b: pointer to the second value
+ * Return: no return
+*/
+void _swap(int *a, int *b)
+{
+	int tmp;
+
+	tmp = *b;
+	*b = *a;
+	*a = tmp;
+}
+
+
+/**
  * bubble_sort - sotrs elemnt in quic sort
  * @array: pointer to array
  * @size: size of array
