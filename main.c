@@ -83,7 +83,7 @@ void insertion_sort_list(listint_t **list)
 	listint_t *head;
 
 	head = *list;
-	current = *list;
+	current = head->next;
 	/*check for error handling*/
 	if (!(head) || !(head->next))
 		return;
