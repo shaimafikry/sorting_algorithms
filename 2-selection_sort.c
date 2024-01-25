@@ -32,24 +32,18 @@ return;
 /*loop through the array*/
 for (i = 0; i < size; i++)
 {
-/*assign the first value to min*/
-min = i;
-/*loop to search for the most lower value*/
-for (j = i + 1 ; j < size; j++)
-{
-if (array[min] > array[j])
-{
-	min = j;
-	check = 1;
-}
-if (check == 1)
-{
-	_swap(&array[min], &array[i]);
-	print_array(array, size);
-	check = 0;
-}
-	
-}
+	/*assign the first value to min*/
+	min = i;
+	/*loop to search for the most lower value*/
+	for (j = i + 1 ; j < size; j++)
+	{
+		if (array[min] > array[j])
+		{
+			min = j;
+		}
+		}
+		_swap(&array[min], &array[i]);
+		print_array(array, size);
 
-}
+		}
 }
