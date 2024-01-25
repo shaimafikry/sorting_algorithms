@@ -51,5 +51,7 @@ void quick_sort(int *array, size_t size)
 			_swap(&array[min], &array[i]);
 			print_array(array, size);
 		}
+		else
+		break;
 	}
 }
