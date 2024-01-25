@@ -30,13 +30,13 @@ void bubble_sort(int *array, size_t size)
 	size_t i, j;
 
 	/*check for error handling*/
-	if (array == NULL|| size < 2)
+	if (array == NULL || size < 2)
 		return;
 	/*loop through the array*/
 	for (i = 0; i < size - 1; i++)
 	{
 		/*loop to search for the most lower value*/
-		for (j = 0; j < size; j++)
+		for (j = 0; j < size - i - 1; j++)
 		{
 			if (array[j] > array[j + 1])
 			{
