@@ -5,7 +5,7 @@
  * @b: pointer to the second value
  * Return: no return
 */
-void swap(int *a, int *b)
+void _swap(int *a, int *b)
 {
 	int tmp;
 
