@@ -14,9 +14,9 @@
  */
 typedef struct listint_s
 {
-    const int n;
-    struct listint_s *prev;
-    struct listint_s *next;
+	const int n;
+	struct listint_s *prev;
+	struct listint_s *next;
 } listint_t;
 
 
@@ -27,18 +27,18 @@ typedef struct listint_s
  */
 void print_list(const listint_t *list)
 {
-    int i;
+	int i;
 
-    i = 0;
-    while (list)
-    {
-        if (i > 0)
-            printf(", ");
-        printf("%d", list->n);
-        ++i;
-        list = list->next;
-    }
-    printf("\n");
+	i = 0;
+	while (list)
+	{
+		if (i > 0)
+			printf(", ");
+		printf("%d", list->n);
+		++i;
+		list = list->next;
+	}
+	printf("\n");
 }
 
 
@@ -50,20 +50,20 @@ void print_list(const listint_t *list)
  */
 void print_array(const int *array, size_t size)
 {
-    size_t i;
+	size_t i;
 
-    i = 0;
-    while (array && i < size)
-    {
-        if (i > 0)
-            printf(", ");
-        printf("%d", array[i]);
-        ++i;
-    }
-    printf("\n");
+	i = 0;
+	while (array && i < size)
+	{
+		if (i > 0)
+			printf(", ");
+		printf("%d", array[i]);
+		++i;
+	}
+	printf("\n");
 }
 
-void swap (int *a, int *b);
+void swap(int *a, int *b);
 void insertion_sort_list(listint_t **list);
 void bubble_sort(int *array, size_t size);
 void selection_sort(int *array, size_t size);

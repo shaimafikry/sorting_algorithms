@@ -1,6 +1,6 @@
 #include "sort.h"
 /**
- * quick_sort: sotrs elemnt in quic sort
+ * quick_sort - sotrs elemnt in quic sort
  * @array: pointer to array
  * @size: size of array
  * Return: no return
@@ -17,7 +17,7 @@ void quick_sort(int *array, size_t size)
 	if (!array || size == 1)
 		return;
 	/*loop through the array*/
-	for ( i = 0; i < size; i++)
+	for (i = 0; i < size; i++)
 	{
 		/*assign the first value to min*/
 		min = i;
@@ -30,12 +30,10 @@ void quick_sort(int *array, size_t size)
 			}
 		}
 
-		
 		if (min != i)
 		{
 			swap(&array[min], &array[i]);
 			print_array(array, size);
 		}
-		
 	}
 }
