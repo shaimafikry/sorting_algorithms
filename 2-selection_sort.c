@@ -1,5 +1,20 @@
 #include "sort.h"
 /**
+ * _swap - function to swap values
+ * @a: pointer to the first value
+ * @b: pointer to the second value
+ * Return: no return
+*/
+void _swap(int *a, int *b)
+{
+	int tmp;
+
+	tmp = *b;
+	*b = *a;
+	*a = tmp;
+}
+
+/**
  * selection_sort - sotrs elemnt
  * @array: pointer to array
  * @size: size of array
@@ -14,7 +29,7 @@ void selection_sort(int *array, size_t size)
 size_t i, min, j;
 
 /*check for error handling*/
-if (!array || size == 1)
+if (array == NULL|| size < 2)
 return;
 /*loop through the array*/
 for (i = 0; i < size; i++)
@@ -28,7 +43,7 @@ if (array[min] > array[j])
 {
 	min = j;
 }
-	swap(&array[min], &array[i]);
+	_swap(&array[min], &array[i]);
 	print_array(array, size);
 }
 
