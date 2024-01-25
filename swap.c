@@ -1,6 +1,6 @@
 #include "sort.h"
 /**
- * swap - function to swap values
+ * _swap - function to swap values
  * @a: pointer to the first value
  * @b: pointer to the second value
  * Return: no return
