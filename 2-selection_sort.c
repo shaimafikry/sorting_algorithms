@@ -27,10 +27,10 @@ void selection_sort(int *array, size_t size)
 size_t i, min, j;
 
 /*check for error handling*/
-if (array == NULL|| size < 2)
+if (array == NULL || size < 2)
 return;
 /*loop through the array*/
-for (i = 0; i < size; i++)
+for (i = 0; i < size - 1; i++)
 {
 	/*assign the first value to min*/
 	min = i;
@@ -42,8 +42,11 @@ for (i = 0; i < size; i++)
 			min = j;
 		}
 		}
-		_swap(&array[min], &array[i]);
-		print_array(array, size);
+		if (min != i)
+		{
+			_swap(&array[min], &array[i]);
+			print_array(array, size);
+		}
 
 		}
 }
