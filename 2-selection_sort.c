@@ -21,13 +21,11 @@ void _swap(int *a, int *b)
  * Return: no return
 */
 
-
-
 void selection_sort(int *array, size_t size)
 {
 /*define varaibles*/
 size_t i, min, j;
-
+int check = 0;
 /*check for error handling*/
 if (array == NULL|| size < 2)
 return;
@@ -42,9 +40,15 @@ for (j = i + 1 ; j < size; j++)
 if (array[min] > array[j])
 {
 	min = j;
+	check = 1;
 }
+if (check == 1)
+{
 	_swap(&array[min], &array[i]);
 	print_array(array, size);
+	check = 0;
+}
+	
 }
 
 }
