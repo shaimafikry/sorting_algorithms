@@ -15,43 +15,43 @@ void _swap(int *a, int *b)
 }
 
 
-/**
- * quick_sort - sotrs elemnt in quic sort
- * @array: pointer to array
- * @size: size of array
- * Return: no return
-*/
-
+int quick_sort_t(int *array, int _start, int _end)
+{
+  
+    
+  size_t pivot, i, j;
+  pivot = array[_end];
+  j = 0;
+  if (_start != 0)
+      i = _start-1;
+  else
+  i = 0;
+  for (i; i < _end-1; i++)
+    {
+      if (array[i] <= pivot)
+        {
+          _swap(&array[i], &array[j]);
+          j++;
+          }
+        }
+          _swap(&array[i+1], &array[j]);
+    return j;
+}
+void quick_sort_f(int *array, int _start, int _end)
+{
+    if (_start <= _end)
+      {
+        int pivot = quick_sort_t(array,_start,_end);
+        quick_sort_f (array, 0, pivot-1);
+        quick_sort_f(array, pivot +1, _end);}
+}
 
 
 void quick_sort(int *array, size_t size)
 {
-	/*define varaibles*/
-	size_t i, min, j;
+    if (array == NULL || size < 2)
+        return;
+    quick_sort_f(array,0, size-1);
 
-	/*check for error handling*/
-	if (array == NULL || size < 2)
-		return;
-	/*loop through the array*/
-	for (i = 0; i < size; i++)
-	{
-		/*assign the first value to min*/
-		min = i;
-		/*loop to search for the most lower value*/
-		for (j = i; j < size; j++)
-		{
-			if (array[min] > array[j])
-			{
-				min = j;
-			}
-		}
 
-		if (min != i)
-		{
-			_swap(&array[min], &array[i]);
-			print_array(array, size);
-		}
-		else
-		break;
-	}
 }

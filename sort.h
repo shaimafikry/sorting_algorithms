@@ -26,6 +26,8 @@ void _swap(int *a, int *b);
 void insertion_sort_list(listint_t **list);
 void bubble_sort(int *array, size_t size);
 void selection_sort(int *array, size_t size);
+void quick_sort_f(int *array, int _start, int _end);
+int quick_sort_t(int *array, int _start, int _end);
 void quick_sort(int *array, size_t size);
 void swap_node(listint_t *a, listint_t *b);
 #endif

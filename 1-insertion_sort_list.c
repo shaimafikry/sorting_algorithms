@@ -35,6 +35,7 @@ void insertion_sort_list(listint_t **list)
 	/*define varaibles*/
 	listint_t *current;
 	listint_t *head;
+	listint_t *tmp;
 
 	head = *list;
 	current = *list;
@@ -45,11 +46,12 @@ void insertion_sort_list(listint_t **list)
 	while (current)
 	{
 		/*loop to search for the most lower value*/
-		while (current && current->n > current->next->n)
+		tmp = current;
+		while (tmp->next && tmp->n > tmp->next->n)
 		{
 			swap_node(current, current->next);
 			print_list(head);
-			current = current->prev;
+			tmp = tmp->prev->prev;
 		}
 		current = current->next;
 	}
