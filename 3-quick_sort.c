@@ -34,12 +34,13 @@ int quick_sort_t(int *array, size_t size, int _start, int _end)
 			{
 				_swap(&array[i], &array[j]);
 				print_array(array, size);
+				j++;
 			}
 		}
-			j++;
+			
 		
 	}
-	if (array[i] > pivot)
+	if (array[j] > pivot)
 	{
 		_swap(&array[j], &array[_end]);
 		print_array(array, size);

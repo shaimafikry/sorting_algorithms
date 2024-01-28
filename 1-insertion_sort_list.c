@@ -10,16 +10,24 @@ void swap_node(listint_t *a, listint_t *b)
 {
 	listint_t *tmp;
 
-	tmp = a;
-	a->next = b->next;
-	if (b->next != NULL)
-		b->next->prev = a;
-	a->prev = b;
+	tmp = a->prev;
+	a->prev = b->prev;
+	b->prev = tmp;
 
+	tmp = a->next;
+	a->next = b->next;
 	b->next = tmp;
-	b->prev = tmp->prev;
-	if (tmp->prev != NULL)
+	
+	if (a->next != NULL)
+		a->next->prev = a;
+	if (a->prev != NULL)
+		a->prev->next = a;
+	if (b->next != NULL)
+		b->next->prev = b;
+	 if (b->prev != NULL)
 		b->prev->next = b;
+
+	
 }
 
 /**
@@ -38,21 +46,23 @@ void insertion_sort_list(listint_t **list)
 	listint_t *tmp;
 
 	head = *list;
-	current = *list;
+	current = head;
 	/*check for error handling*/
-	if (!*list || !head->next)
+	if (*list == NULL || head->next == NULL|| list == NULL)
 		return;
 	/*loop through the array*/
 	while (current)
 	{
 		/*loop to search for the most lower value*/
 		tmp = current;
-		while (tmp->next && tmp->n > tmp->next->n)
+		while (current->next && current->n > current->next->n)
 		{
 			swap_node(current, current->next);
 			print_list(head);
-			tmp = tmp->prev->prev;
+			current = current->prev->prev;
+			if (current == NULL)
+				break;
 		}
-		current = current->next;
+		current = tmp->next;
 	}
 }
