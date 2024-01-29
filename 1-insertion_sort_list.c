@@ -1,55 +1,64 @@
 #include "sort.h"
 
 /**
- * swap_node - function to swap values
- * @a: pointer to the first value
- * @b: pointer to the second value
- * Return: no return
-*/
+ * swap_node - function to swap values of two nodes in a linked list
+ * @a: pointer to the first node
+ * @b: pointer to the second node
+ * Return: void
+ */
 void swap_node(listint_t *a, listint_t *b)
 {
-    listint_t *tmp;
+	/* Swap prev pointers */
+	listint_t *tmp = a->prev;
+	a->prev = b->prev;
+	b->prev = tmp;
 
-    tmp = a->prev;
-    a->prev = b->prev;
-    b->prev = tmp;
+	/* Update next pointers if not NULL */
+	if (a->prev)
+		a->prev->next = a;
+	if (b->prev)
+		b->prev->next = b;
 
-    tmp = a->next;
-    a->next = b->next;
-    b->next = tmp;
+	/* Swap next pointers */
+	tmp = a->next;
+	a->next = b->next;
+	b->next = tmp;
 
-    if (a->next != NULL)
-        a->next->prev = a;
-    if (a->prev != NULL)
-        a->prev->next = a;
-    if (b->next != NULL)
-        b->next->prev = b;
-    if (b->prev != NULL)
-        b->prev->next = b;
+	/* Update prev pointers if not NULL */
+	if (a->next)
+		a->next->prev = a;
+	if (b->next)
+		b->next->prev = b;
 }
 
 /**
- * insertion_sort_list - sorts elements using insertion sort
+ * insertion_sort_list - sorts elements in a doubly linked list using insertion sort
  * @list: pointer to the head of the list
- * Return: no return
-*/
+ * Return: void
+ */
 void insertion_sort_list(listint_t **list)
 {
-    if (*list == NULL || (*list)->next == NULL)
-        return;
+	listint_t *current, *head, *tmp;
 
-    listint_t *current = (*list)->next;  /*Start from the second node*/
-    listint_t *head = *list;
-    
-    while (current)
-    {
-        listint_t *tmp = current;
-        while (tmp->prev && tmp->n < tmp->prev->n)
-        {
-            swap_node(tmp->prev, tmp);
-            print_list(head);
-            tmp = tmp->prev;  /* Move tmp back one node after each swap*/
-        }
-        current = current->next;  /*Move to the next node*/
-    }
+	/* Check for edge cases */
+	if (list == NULL || *list == NULL || (*list)->next == NULL)
+		return;
+
+	head = *list;
+	current = head;
+
+	/* Loop through the list */
+	while (current)
+	{
+		/* Loop to search for the lowest value */
+		tmp = current;
+		while (tmp->prev && tmp->n < tmp->prev->n)
+		{
+			/* Swap nodes if necessary */
+			swap_node(tmp->prev, tmp);
+			print_list(head);
+			tmp = tmp->prev;
+		}
+		current = current->next;
+	}
 }
