@@ -17,6 +17,7 @@ void _swap(int *a, int *b)
 /**
  * quick_sort_t - function to get pivot
  * @array: pointer to the first value
+ * @size: array size
  * @_start: array start
  * @_end: array end
  * Return:pivot
@@ -51,8 +52,10 @@ int quick_sort_t(int *array, size_t size, int _start, int _end)
 /**
  * quick_sort_f - function to get pivot
  * @array: pointer to the first value
+ * @size: array size
+ * @_start: array start
  * @_end: array end
- * Return:pivot
+ * Return:recursive
 */
 void quick_sort_f(int *array, size_t size,  int _start, int _end)
 {

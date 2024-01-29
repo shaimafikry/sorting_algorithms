@@ -4,6 +4,7 @@
  * swap_node - function to swap values of two nodes in a linked list
  * @a: pointer to the first node
  * @b: pointer to the second node
+ * @list: pointer to the fisr node
  * Return: void
  */
 void swap_node(listint_t **list, listint_t *a, listint_t *b)
@@ -25,7 +26,7 @@ void swap_node(listint_t **list, listint_t *a, listint_t *b)
 	}
 
 /**
- * insertion_sort_list - sorts elements in a doubly linked list using insertion sort
+ * insertion_sort_list - sorts elements in a db list insertion sort
  * @list: pointer to the head of the list
  * Return: void
  */
