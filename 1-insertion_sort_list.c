@@ -11,6 +11,9 @@ void swap_node(listint_t **list, listint_t *a, listint_t *b)
 {
 	listint_t *tmp;
 
+	if (a == b)
+		return;
+
 	tmp = a->prev;
 	a->next = b->next;
 	a->prev = b;
@@ -39,20 +42,23 @@ if (list == NULL || *list == NULL || (*list)->next == NULL)
 return;
 
 head = *list;
-current = head->next;
+current = head;
 
 /* Loop through the list */
 while (current)
 {
 /* Loop to search for the lowest value */
-tmp = current;
-while (tmp->prev && tmp->n < tmp->prev->n)
+tmp = current->prev;
+while (tmp && tmp->n > tmp->next->n)
 {
 	/* Swap nodes if necessary */
-	swap_node(&head, tmp->prev, tmp);
+	swap_node(&head, tmp, tmp->next);
 	print_list(head);
-	tmp->prev = tmp->prev;
+	tmp = tmp->prev->prev;
 }
+
 current = current->next;
+if (current == NULL)
+	*list = head;
 }
 }
