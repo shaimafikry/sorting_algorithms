@@ -53,8 +53,3 @@ void insertion_sort_list(listint_t **list)
         current = current->next;  // Move to the next node
     }
 }
-```
-
-In the fixed version:
-- The `current` pointer is correctly updated within the inner loop to avoid an infinite loop.
-- Redundant condition check for `list == NULL` inside the function is removed.
