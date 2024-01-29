@@ -18,13 +18,9 @@ void swap_node(listint_t *a, listint_t *b)
 	a->next = b->next;
 	b->next = tmp;
 	
-	if (a->next != NULL)
-		a->next->prev = a;
 	if (a->prev != NULL)
 		a->prev->next = a;
-	if (b->next != NULL)
-		b->next->prev = b;
-	 if (b->prev != NULL)
+	if (b->prev != NULL)
 		b->prev->next = b;
 
 	
