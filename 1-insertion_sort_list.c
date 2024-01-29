@@ -38,7 +38,7 @@ void insertion_sort_list(listint_t **list)
     if (*list == NULL || (*list)->next == NULL)
         return;
 
-    listint_t *current = (*list)->next;  // Start from the second node
+    listint_t *current = (*list)->next;  /*Start from the second node*/
     listint_t *head = *list;
     
     while (current)
@@ -48,8 +48,8 @@ void insertion_sort_list(listint_t **list)
         {
             swap_node(tmp->prev, tmp);
             print_list(head);
-            tmp = tmp->prev;  // Move tmp back one node after each swap
+            tmp = tmp->prev;  /* Move tmp back one node after each swap*/
         }
-        current = current->next;  // Move to the next node
+        current = current->next;  /*Move to the next node*/
     }
 }
