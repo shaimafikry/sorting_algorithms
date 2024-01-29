@@ -1,4 +1,4 @@
-#include "sort.h"
+حرف#include "sort.h"
 
 /**
  * swap_node - function to swap values
@@ -43,27 +43,25 @@ void insertion_sort_list(listint_t **list)
 	listint_t *head;
 	listint_t *tmp;
 
-if (*list == NULL || list == NULL)
+if (*list == NULL || (*list)->next == NULL)
 		 return;
 
 /*check for error handling*/
 
 	head = *list;
-	current = head;
+	current = head->next;
 	
 	/*loop through the array*/
 	while (current)
 	{
 		/*loop to search for the most lower value*/
 		tmp = current;
-		while (current->next && current->n > current->next->n)
+		while (tmp->prev && tmp->prev->n > tmp->n)
 		{
-			swap_node(current, current->next);
+			swap_node(tmp->prev, tmp);
 			print_list(head);
-			current = current->prev->prev;
-			if (current == NULL)
-				break;
+			tmp = tmp->prev;
 		}
-		current = tmp->next;
+		current = current->next;
 	}
 }
